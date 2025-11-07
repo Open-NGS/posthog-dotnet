@@ -1,5 +1,6 @@
-using System.Text.Json;
-using System.Text.Json.Serialization;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PostHog.Library;
 
 namespace PostHog.Json;
@@ -8,26 +9,28 @@ using static Ensure;
 
 internal sealed class PropertyFilterValueJsonConverter : JsonConverter<PropertyFilterValue>
 {
-    public override PropertyFilterValue? Read(
-        ref Utf8JsonReader reader,
-        Type typeToConvert,
-        JsonSerializerOptions options)
+    public override PropertyFilterValue? ReadJson(JsonReader reader, Type objectType, PropertyFilterValue? existingValue, bool hasExistingValue, JsonSerializer serializer)
     {
-        var filterElement = JsonDocument.ParseValue(ref reader).RootElement;
+        var filterElement = serializer.Deserialize<JObject>(reader);
         return PropertyFilterValue.Create(filterElement);
     }
 
     public override void Write(Utf8JsonWriter writer, PropertyFilterValue value, JsonSerializerOptions options)
+    {
+       
+    }
+
+    public override void WriteJson(JsonWriter writer, PropertyFilterValue? value, JsonSerializer serializer)
     {
         writer = NotNull(writer);
 
         switch (value)
         {
             case { StringValue: { } stringValue }:
-                writer.WriteStringValue(stringValue);
+                serializer.Serialize(writer, stringValue);
                 break;
             case { CohortId: { } cohortId }:
-                writer.WriteNumberValue(cohortId);
+                serializer.Serialize(writer, cohortId);
                 break;
             case { ListOfStrings: { } stringArray }:
                 {
@@ -37,7 +40,7 @@ internal sealed class PropertyFilterValueJsonConverter : JsonConverter<PropertyF
                     // Iterate through the list and write each string value
                     foreach (var item in stringArray)
                     {
-                        writer.WriteStringValue(item);
+                        serializer.Serialize(writer, item);
                     }
 
                     // End the JSON array
@@ -46,7 +49,7 @@ internal sealed class PropertyFilterValueJsonConverter : JsonConverter<PropertyF
                 }
             case null:
                 {
-                    writer.WriteNullValue();
+                    writer.WriteNull();
                     break;
                 }
         }

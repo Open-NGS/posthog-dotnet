@@ -1,4 +1,4 @@
-using System.Text.Json.Serialization;
+using PostHog.Json;
 
 namespace PostHog.Api;
 

@@ -1,5 +1,4 @@
 using System.Text;
-using System.Text.Json;
 using PostHog.Json;
 using PostHog.Library;
 

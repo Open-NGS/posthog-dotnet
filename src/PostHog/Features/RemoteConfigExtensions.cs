@@ -1,4 +1,3 @@
-using System.Text.Json;
 using static PostHog.Library.Ensure;
 
 namespace PostHog;

@@ -1,5 +1,3 @@
-using System.Text.Json;
-using System.Text.Json.Nodes;
 using PostHog.Api;
 using PostHog.Json;
 using static PostHog.Library.Ensure;

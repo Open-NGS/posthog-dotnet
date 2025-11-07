@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using PostHog.Api;
 using PostHog.Library;
 using static PostHog.Library.Ensure;
@@ -43,7 +43,7 @@ public class PropertyFilterValue
     /// </remarks>
     /// <param name="jsonElement">A JsonElement</param>
     /// <returns>A <see cref="PropertyFilterValue"/>.</returns>
-    public static PropertyFilterValue? Create(JsonElement jsonElement) =>
+    public static PropertyFilterValue? Create(JObject? jsonElement) =>
         jsonElement.ValueKind switch
         {
             JsonValueKind.String => jsonElement.GetString() is { } stringValue ? new PropertyFilterValue(stringValue) : null,

@@ -1,4 +1,4 @@
-using System.Text.Json.Serialization;
+using Newtonsoft.Json;
 using PostHog.Json;
 using PostHog.Library;
 

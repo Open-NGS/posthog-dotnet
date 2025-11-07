@@ -13,15 +13,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostHog", "src\PostHog\Post
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "meta", "meta", "{3CC1F9AB-C77E-41B6-B9D3-FCAA4BF0D9E3}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
 		.github\CODEOWNERS = .github\CODEOWNERS
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{D5D2C580-B926-4FFA-B34B-3D78C37C3F8B}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{5F21F6BA-8ED0-4A96-BDF2-65ABAE0A7A90}"
@@ -32,13 +32,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostHog.AspNetCore", "src\P
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bin", "bin", "{5D5BA318-B12E-4EB3-9F9C-90D1337C57E0}"
 	ProjectSection(SolutionItems) = preProject
-		bin\ef = bin\ef
 		bin\build = bin\build
+		bin\ef = bin\ef
 		bin\fmt = bin\fmt
 		bin\publish = bin\publish
-		bin\user-secrets = bin\user-secrets
 		bin\start = bin\start
 		bin\test = bin\test
+		bin\user-secrets = bin\user-secrets
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helpers", "helpers", "{224403B1-98F1-4DC0-B1C0-00AF60B9EA05}"
@@ -48,8 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helpers", "helpers", "{2244
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{C2E8B694-977A-41A0-9DED-27C286460F0A}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\stale-labeller.yaml = .github\workflows\stale-labeller.yaml
 		.github\workflows\main.yaml = .github\workflows\main.yaml
+		.github\workflows\stale-labeller.yaml = .github\workflows\stale-labeller.yaml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "problemMatchers", "problemMatchers", "{DE86ACE8-2A13-4B5C-A715-1BA6412DA314}"
@@ -63,13 +63,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.AspNetCore", "tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HogTied.Api", "samples\HogTied.Api\HogTied.Api.csproj", "{97B0F150-CE6A-4AB5-9DCC-221C7E05A0E2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostHogSample", "PostHogSample\PostHogSample.csproj", "{309ED227-C579-4608-B1DE-C78016827C56}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{BB9A6B63-4435-4357-AD99-2E43C38E73F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -100,6 +99,13 @@ Global
 		{97B0F150-CE6A-4AB5-9DCC-221C7E05A0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97B0F150-CE6A-4AB5-9DCC-221C7E05A0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97B0F150-CE6A-4AB5-9DCC-221C7E05A0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309ED227-C579-4608-B1DE-C78016827C56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309ED227-C579-4608-B1DE-C78016827C56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309ED227-C579-4608-B1DE-C78016827C56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309ED227-C579-4608-B1DE-C78016827C56}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BB9A6B63-4435-4357-AD99-2E43C38E73F7} = {9BA7A137-62AD-4837-BE21-B501EF9D66B7}
@@ -112,5 +118,6 @@ Global
 		{369AE9E5-4FA6-48BF-A35A-03A401DE22AE} = {9BA7A137-62AD-4837-BE21-B501EF9D66B7}
 		{B16BEF9F-76FC-4362-A7D5-A87DB10933A3} = {9BA7A137-62AD-4837-BE21-B501EF9D66B7}
 		{97B0F150-CE6A-4AB5-9DCC-221C7E05A0E2} = {5F21F6BA-8ED0-4A96-BDF2-65ABAE0A7A90}
+		{309ED227-C579-4608-B1DE-C78016827C56} = {AC5FC694-028B-4AB0-AF76-09726F966A78}
 	EndGlobalSection
 EndGlobal
